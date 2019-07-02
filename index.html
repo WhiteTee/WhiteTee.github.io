@@ -105,7 +105,7 @@
 <img src="/2019/06/29/安装docker/1.png">
 
 <h3 id="安装环境-1"><a href="#安装环境-1" class="headerlink" title="安装环境"></a>安装环境</h3><p>使用下面命令安装需要的工具</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt updat  #跟新软件列表</span><br><span class="line"></span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common #安装需要的软件</span><br><span class="line"></span><br><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #备份一次</span><br><span class="line">sudo vi /etc/apt/sources.list #新建一个sources.list</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get updat  #跟新软件列表</span><br><span class="line"></span><br><span class="line">sudo apt-get install apt-transport-https ca-certificates curl software-properties-common #安装需要的软件</span><br><span class="line"></span><br><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #备份一次</span><br><span class="line">sudo vi /etc/apt/sources.list #新建一个sources.list</span><br></pre></td></tr></table></figure></div>
 
 <p>在sources.list写入<br>deb [arch=amd64] <a href="https://download.docker.com/linux/ubuntu" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu</a> bionic stable</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  #跟新软件列表</span><br></pre></td></tr></table></figure></div>
@@ -123,7 +123,7 @@
 <img src="/2019/06/29/安装docker/4.png">
 
 <p>到这里docker 安装完毕</p>
-<h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><p>ocker-compose可以调用dockerfile 和docker-compose.yml 等文件生成写好的docker镜像文件。</p>
+<h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><p>docker-compose可以调用dockerfile 和docker-compose.yml 等文件生成写好的docker镜像文件。</p>
 <p>因为刚刚我们改了sources.list，现在改为正常的国内更新源。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sudo vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure></div>
 
