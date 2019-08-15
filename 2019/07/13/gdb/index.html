@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>pwn之gdb | 晓生丶白衣</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。  2">
+<meta name="keywords" content="pwn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pwn之gdb">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/gdb/index.html">
+<meta property="og:site_name" content="晓生丶白衣">
+<meta property="og:description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。  2">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb3.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb4.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb5.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb6.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb7.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb8.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb9.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb10.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb11.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb12.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb13.png">
+<meta property="og:updated_time" content="2019-08-15T10:03:51.911Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pwn之gdb">
+<meta name="twitter:description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。  2">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/13/gdb/gdb1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="晓生丶白衣" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/code-title.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" style="background-image: url(/images/1.jpg)" title="背景图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+        <a class="nav-item" href="/" title
+        
+        >1档</a>
+      
+        <a class="nav-item" href="/" title
+        
+        >2档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-gdb" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      pwn之gdb
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/13/gdb/" class="article-date">
+  <time datetime="2019-07-13T07:31:10.000Z" itemprop="datePublished">2019-07-13</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwn/">pwn</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <h3 id="什么是gdb"><a href="#什么是gdb" class="headerlink" title="什么是gdb"></a>什么是gdb</h3><p>如果不知道什么是gdb，自行百度。</p>
+<h3 id="gdb使用"><a href="#gdb使用" class="headerlink" title="gdb使用"></a>gdb使用</h3><h4 id="1-使用gdb打开procedure程序"><a href="#1-使用gdb打开procedure程序" class="headerlink" title="1.使用gdb打开procedure程序"></a>1.使用gdb打开procedure程序</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb [选项] &lt;procedure&gt; | &lt;PID&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>调用procedure程序。这时程序并没有运行。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-cd：设置工作目录；</span><br><span class="line">-q：安静模式，不打印介绍信息和版本信息；</span><br><span class="line">-d：添加文件查找路径；</span><br><span class="line">-x：从指定文件中执行GDB指令；</span><br><span class="line">-s：设置读取的符号表文件。</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2-gdb运行程序"><a href="#2-gdb运行程序" class="headerlink" title="2.gdb运行程序"></a>2.gdb运行程序</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) start &amp;&amp; run</span><br></pre></td></tr></table></figure></div>
+
+<p>1) start 命令会如果没有断点将程序运行到main函数中然后停止，有断点运行到断点处停止。<br>2) run命令会如果没有断点，会将程序正常运行，如果有断点则运行到断点处停止。</p>
+<h5 id="说到断点，如何设置断点？"><a href="#说到断点，如何设置断点？" class="headerlink" title="说到断点，如何设置断点？"></a>说到断点，如何设置断点？</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) break (函数名) | *（内存地址）</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/07/13/gdb/gdb1.png">
+
+<img src="/2019/07/13/gdb/gdb2.png">
+
+<img src="/2019/07/13/gdb/gdb3.png">
+
+<h5 id="临时断点"><a href="#临时断点" class="headerlink" title="临时断点"></a>临时断点</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) tbreak (函数名) | *（内存地址）</span><br></pre></td></tr></table></figure></div>
+
+<p>只在设置处停止一次，停止完后自动删除断点</p>
+<h5 id="条件断点"><a href="#条件断点" class="headerlink" title="条件断点"></a>条件断点</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) tbreak (函数名) | *（内存地址） if i==101</span><br></pre></td></tr></table></figure></div>
+
+<p>当程序局部变量i 等于101 的时候，触发断点</p>
+<h5 id="查看断点"><a href="#查看断点" class="headerlink" title="查看断点"></a>查看断点</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info b | info breakpoints</span><br></pre></td></tr></table></figure></div>
+
+<p>打印当前所有设置的断点</p>
+<img src="/2019/07/13/gdb/gdb4.png">
+
+<h5 id="断点设置太多了怎么办？"><a href="#断点设置太多了怎么办？" class="headerlink" title="断点设置太多了怎么办？"></a>断点设置太多了怎么办？</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(gdb) delete breakpoints #删除所有断点</span><br><span class="line"></span><br><span class="line">#删除单个断点1</span><br><span class="line">delete n</span><br></pre></td></tr></table></figure></div>
+
+<p>n 为info b 命令查看的后的标号</p>
+<img src="/2019/07/13/gdb/gdb5.png">
+
+
+
+<h4 id="3-gdb的汇编代码查看"><a href="#3-gdb的汇编代码查看" class="headerlink" title="3. gdb的汇编代码查看"></a>3. gdb的汇编代码查看</h4><p>如果程序不在断点或者调试状态中用</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble (函数名) | *（内存地址）</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/07/13/gdb/gdb6.png">
+
+<img src="/2019/07/13/gdb/gdb7.png">
+
+<p>如果程序在断点处，直接输入disassemble 命令，会直接输出当前命令的所在位置</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble #输出当前所在的汇编代码处</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/07/13/gdb/gdb8.png">
+
+
+
+<h5 id="但是这时的汇编代码和我们用ida-查看的汇编代码不同，因为linux默认使用att-的汇编格式，可以使用下面的命令修改为intel格式汇编"><a href="#但是这时的汇编代码和我们用ida-查看的汇编代码不同，因为linux默认使用att-的汇编格式，可以使用下面的命令修改为intel格式汇编" class="headerlink" title="但是这时的汇编代码和我们用ida 查看的汇编代码不同，因为linux默认使用att 的汇编格式，可以使用下面的命令修改为intel格式汇编"></a>但是这时的汇编代码和我们用ida 查看的汇编代码不同，因为linux默认使用att 的汇编格式，可以使用下面的命令修改为intel格式汇编</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set disassembly-flavor intel | att</span><br></pre></td></tr></table></figure></div>
+
+<p>设置为intel</p>
+<img src="/2019/07/13/gdb/gdb9.png">
+
+<img src="/2019/07/13/gdb/gdb10.png">
+
+<h4 id="4-单步执行程序汇编"><a href="#4-单步执行程序汇编" class="headerlink" title="4. 单步执行程序汇编"></a>4. 单步执行程序汇编</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) ni  #单步步过</span><br><span class="line">(gdb) si  #单步步入</span><br></pre></td></tr></table></figure></div>
+
+<p>ni 和si 在普通的汇编代码中这条命令是没区别的，只有在call 指令的时候，是不同的，<br>首先 ni和si 都是单步运行下一条命令，但是 ni 遇到call 的汇编指令的时候，不会跳转到call 函数中去，是将call 执行后，执行到下一条命令。而si 会则会跳转去，执行函数里的汇编。<br>         解释：call 指令是，汇编跳转指令，跳转前，会保留返回值地址，执行完毕后回到原来的逻辑流程。</p>
+<h4 id="5-gdb打印所有函数"><a href="#5-gdb打印所有函数" class="headerlink" title="5. gdb打印所有函数"></a>5. gdb打印所有函数</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info functions [name]</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/07/13/gdb/gdb11.png">
+
+<p>info functions 还支持正则匹配函数名</p>
+<img src="/2019/07/13/gdb/gdb12.png">
+
+
+
+<h4 id="6-gdb-查看，各寄存器当前数据"><a href="#6-gdb-查看，各寄存器当前数据" class="headerlink" title="6. gdb 查看，各寄存器当前数据"></a>6. gdb 查看，各寄存器当前数据</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info registers</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/07/13/gdb/gdb13.png">
+
+
+
+<h4 id="7-gdb的-x用法"><a href="#7-gdb的-x用法" class="headerlink" title="7.gdb的 x用法"></a>7.gdb的 x用法</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x/&lt;n/f/u&gt; &lt;addr&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>n、f、u是可选的参数。</p>
+<p>n表示是数量，显示单元数量。这个数量的单位是u参数决定的。</p>
+<p>f 参数表示内存内容显示的格式</p>
+<p>​    s按字符串的格式显示变量。</p>
+<p>​    i按汇编代码格式显示变量。</p>
+<p>​    x 按十六进制格式显示变量。</p>
+<p>​    d 按十进制格式显示变量。</p>
+<p>​    u 按十六进制格式显示无符号整型。</p>
+<p>​    o 按八进制格式显示变量。</p>
+<p>​    t 按二进制格式显示变量。</p>
+<p>​    a 按十六进制格式显示变量。</p>
+<p>​    c 按字符格式显示变量。</p>
+<p>​    f 按浮点数格式显示变量。</p>
+<p>u单元的长度<br>    b是一个byte</p>
+<p>​    h是两个byte（halfword)</p>
+<p>​    w是四个byte（word 32位）</p>
+<p>​    g是八个byte（giant word 64位）</p>
+<h4 id="8-技巧"><a href="#8-技巧" class="headerlink" title="8.技巧"></a>8.技巧</h4><p>直接执行完当前函数</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) finish</span><br></pre></td></tr></table></figure></div>
+
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/13/liunx-scp/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            liunx命令
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/02/docekr/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">docekr 入门</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/code-title.png" title="头像来自网络"></img>
+    <h3 class="avatar-name">
+      
+        晓生丶白衣
+      
+    </h3>
+    <p class="avatar-slogan">
+      信息！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-使用/">docker 使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/liunx/">liunx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最近的文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/13/liunx-scp/">liunx命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/13/gdb/">pwn之gdb</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/02/docekr/">docekr 入门</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/29/安装docker/">安装docker</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/29/hexo-博客的搭建/">hexo 博客的搭建</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://huandtx.github.io/" title target='_blank'
+        >Huandtx</a>
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      
+<footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 WhiteTee &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">1档</a>
+  
+    <a href="/" class="mobile-nav-link">2档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
