@@ -71,25 +71,25 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
-    <article id="post-liunx-scp" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PC" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/13/liunx-scp/">liunx命令</a>
+      <a class="article-title" href="/2019/08/19/PC/">PC逻辑过程</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/07/13/liunx-scp/" class="article-date">
-  <time datetime="2019-07-13T07:31:10.000Z" itemprop="datePublished">2019-07-13</time>
+    <a href="/2019/08/19/PC/" class="article-date">
+  <time datetime="2019-08-19T07:52:09.000Z" itemprop="datePublished">2019-08-19</time>
 </a>
     
     
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/liunx/">liunx</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随手笔记/">随手笔记</a></li></ul>
 
   </div>
   
@@ -98,29 +98,36 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <h2 id="记录一些liunx命令的使用"><a href="#记录一些liunx命令的使用" class="headerlink" title="记录一些liunx命令的使用"></a>记录一些liunx命令的使用</h2><h4 id="liunx间的文件复制命令SCP"><a href="#liunx间的文件复制命令SCP" class="headerlink" title="liunx间的文件复制命令SCP"></a>liunx间的文件复制命令SCP</h4><h4 id="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"><a href="#scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。" class="headerlink" title="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"></a>scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。</h4><h5 id="1-命令格式"><a href="#1-命令格式" class="headerlink" title="1. 命令格式"></a>1. 命令格式</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [参数] [原路径] [目标路径]</span><br></pre></td></tr></table></figure></div>
+        <h2 id="PC逻辑"><a href="#PC逻辑" class="headerlink" title="PC逻辑"></a>PC逻辑</h2><h4 id="再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接"><a href="#再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接" class="headerlink" title="再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接"></a>再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/av53618267/?p=1</span><br></pre></td></tr></table></figure></div>
 
-<h5 id="2-命令参数"><a href="#2-命令参数" class="headerlink" title="2.  命令参数"></a>2.  命令参数</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">-1  强制scp命令使用协议ssh1 </span><br><span class="line"></span><br><span class="line">-2  强制scp命令使用协议ssh2 </span><br><span class="line"></span><br><span class="line">-4  强制scp命令只使用IPv4寻址 </span><br><span class="line"></span><br><span class="line">-6  强制scp命令只使用IPv6寻址 </span><br><span class="line"></span><br><span class="line">-B  使用批处理模式（传输过程中不询问传输口令或短语） </span><br><span class="line"></span><br><span class="line">-C  允许压缩。（将-C标志传递给ssh，从而打开压缩功能） </span><br><span class="line"></span><br><span class="line">-p 保留原文件的修改时间，访问时间和访问权限。 </span><br><span class="line"></span><br><span class="line">-q  不显示传输进度条。 </span><br><span class="line"></span><br><span class="line">-r  递归复制整个目录。 </span><br><span class="line"></span><br><span class="line">-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。  </span><br><span class="line"></span><br><span class="line">-c cipher  以cipher将数据传输进行加密，这个选项将直接传递给ssh。  </span><br><span class="line"></span><br><span class="line">-F ssh_config  指定一个替代的ssh配置文件，此参数直接传递给ssh。 </span><br><span class="line"></span><br><span class="line">-i identity_file  从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。   </span><br><span class="line"></span><br><span class="line">-l limit  限定用户所能使用的带宽，以Kbit/s为单位。    </span><br><span class="line"></span><br><span class="line">-o ssh_option  如果习惯于使用ssh_config(5)中的参数传递方式，  </span><br><span class="line"></span><br><span class="line">-P port  注意是大写的P, port是指定数据传输用到的端口号  </span><br><span class="line"></span><br><span class="line">-S program  指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。</span><br></pre></td></tr></table></figure></div>
+<h4 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h4><p>​    为什么PC中使用二进制的原因，在1表示True（真），0表示False（假）</p>
+<p>​    逻辑代数三个基本过程：NOT（逻辑非），AND（逻辑于）和OR（逻辑或）</p>
+<p>​    NOT（逻辑非）：将当前逻辑取反，作用单个布尔值，结合python，如下</p>
+<img src="/2019/08/19/PC/PC1.png">
 
-<h5 id="3-实例"><a href="#3-实例" class="headerlink" title="3.  实例"></a>3.  实例</h5><p>​        1.从远程复制到本地</p>
-<p>​        远程IP地址是 1.1.1.1（根据实际进行改变）</p>
-<p>文件： </p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src root@1.1.1.1:/vaw/www/html/1.php ./</span><br></pre></td></tr></table></figure></div>
+<p>​    </p>
+<p>​    在物理上构建NOT逻辑的时候，看蒙了，看了几遍总算理解如何构造NOT逻辑<br>​    </p>
+<p>​    首先看第一张图，一个正常的电控开关</p>
+<img src="/2019/08/19/PC/PC2.png">
 
-<p>解释：从服务器(1.1.1.1)上下载 /vaw/www/html/1.php 文件到当前目录</p>
-<p>文件夹：</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src -r root@1.1.1.1:/vaw/www/html ./</span><br></pre></td></tr></table></figure></div>
 
-<p>解释：从服务器(1.1.1.1)上下载 /vaw/www/html 文件文件夹到当前目录 如果并不存在文件夹会新建一个</p>
-<p>​        2.从本地复制到远程</p>
-<p>文件：</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src 1.txt root@1.1.1.1:/vaw/www/html</span><br></pre></td></tr></table></figure></div>
 
-<p>解释：把本地1.txt 上传到1.1.1.1 的var/www/html目录下</p>
-<p>文件夹</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src -r X root@1.1.1.1:/vaw/www/html</span><br></pre></td></tr></table></figure></div>
+<p>​    图中的INPUT 是控制总线，它的开关代表了OUTPUT输出的是0还是1 ，但是他本事也有0和1 的状态，也就是真和假的两种状态。</p>
+<p>​    所以当我们给INPUT（控制线）为1(通电)时，开关为开，电流通过晶体流入OUTPUT，这时电位为开，输出为1 。INPUT（控制线）为0，电流就无法通过晶体，OUTPUT就表示0，输出为0.</p>
+<p>也就是视频中的</p>
+<img src="/2019/08/19/PC/PC3.png">
 
-<p>解释：把本地X文件夹 上传到1.1.1.1 的var/www/html目录下</p>
+<p>​    </p>
+<p>​    接下来是NOT物理电路</p>
+<img src="/2019/08/19/PC/PC4.png">
+<img src="/2019/08/19/PC/PC5.png">
+
+<p>先解释一下两个图片的不同吧，INPUT（控制线）位置不变，OUTPUT变到流入处，原来的位置变为接地线。</p>
+<p>那么问题来了，什么是接地线，不知道大家欧姆定律，欧姆定律中说到电阻越大电流就越小，而电流也先是欺软怕硬的，如果遇到了电阻很低的存在，所有电流都会到电阻很低的地方流过。</p>
+<p>接地线的电阻，在物理上是无线接近于0 的，也就是说，如果接地线，出现在闭合电路中，那么，所有电流将全部从接地线流出。</p>
+<p>所有，NOT逻辑电路中，INPUT为1的时候，电流知道了接地线的存在，就全部到从接地线中流出，导致OUTPUT中无电流，表示为0，当INPUT为0的时候，电流没有其他路可以走，只能走OUTPUT，所有OUTPUT呈现为1</p>
+<p>所以逻辑表为，这样就实习了NOT过程</p>
+<img src="/2019/08/19/PC/PC6.png">
 
       
     </div>
@@ -254,6 +261,66 @@
 <h4 id="8-技巧"><a href="#8-技巧" class="headerlink" title="8.技巧"></a>8.技巧</h4><p>直接执行完当前函数</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) finish</span><br></pre></td></tr></table></figure></div>
 
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-liunx-scp" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/13/liunx-scp/">liunx命令</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/13/liunx-scp/" class="article-date">
+  <time datetime="2019-07-13T07:31:10.000Z" itemprop="datePublished">2019-07-13</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/liunx/">liunx</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <h2 id="记录一些liunx命令的使用"><a href="#记录一些liunx命令的使用" class="headerlink" title="记录一些liunx命令的使用"></a>记录一些liunx命令的使用</h2><h4 id="liunx间的文件复制命令SCP"><a href="#liunx间的文件复制命令SCP" class="headerlink" title="liunx间的文件复制命令SCP"></a>liunx间的文件复制命令SCP</h4><h4 id="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"><a href="#scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。" class="headerlink" title="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"></a>scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。</h4><h5 id="1-命令格式"><a href="#1-命令格式" class="headerlink" title="1. 命令格式"></a>1. 命令格式</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [参数] [原路径] [目标路径]</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="2-命令参数"><a href="#2-命令参数" class="headerlink" title="2.  命令参数"></a>2.  命令参数</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">-1  强制scp命令使用协议ssh1 </span><br><span class="line"></span><br><span class="line">-2  强制scp命令使用协议ssh2 </span><br><span class="line"></span><br><span class="line">-4  强制scp命令只使用IPv4寻址 </span><br><span class="line"></span><br><span class="line">-6  强制scp命令只使用IPv6寻址 </span><br><span class="line"></span><br><span class="line">-B  使用批处理模式（传输过程中不询问传输口令或短语） </span><br><span class="line"></span><br><span class="line">-C  允许压缩。（将-C标志传递给ssh，从而打开压缩功能） </span><br><span class="line"></span><br><span class="line">-p 保留原文件的修改时间，访问时间和访问权限。 </span><br><span class="line"></span><br><span class="line">-q  不显示传输进度条。 </span><br><span class="line"></span><br><span class="line">-r  递归复制整个目录。 </span><br><span class="line"></span><br><span class="line">-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。  </span><br><span class="line"></span><br><span class="line">-c cipher  以cipher将数据传输进行加密，这个选项将直接传递给ssh。  </span><br><span class="line"></span><br><span class="line">-F ssh_config  指定一个替代的ssh配置文件，此参数直接传递给ssh。 </span><br><span class="line"></span><br><span class="line">-i identity_file  从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。   </span><br><span class="line"></span><br><span class="line">-l limit  限定用户所能使用的带宽，以Kbit/s为单位。    </span><br><span class="line"></span><br><span class="line">-o ssh_option  如果习惯于使用ssh_config(5)中的参数传递方式，  </span><br><span class="line"></span><br><span class="line">-P port  注意是大写的P, port是指定数据传输用到的端口号  </span><br><span class="line"></span><br><span class="line">-S program  指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="3-实例"><a href="#3-实例" class="headerlink" title="3.  实例"></a>3.  实例</h5><p>​        1.从远程复制到本地</p>
+<p>​        远程IP地址是 1.1.1.1（根据实际进行改变）</p>
+<p>文件： </p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src root@1.1.1.1:/vaw/www/html/1.php ./</span><br></pre></td></tr></table></figure></div>
+
+<p>解释：从服务器(1.1.1.1)上下载 /vaw/www/html/1.php 文件到当前目录</p>
+<p>文件夹：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src -r root@1.1.1.1:/vaw/www/html ./</span><br></pre></td></tr></table></figure></div>
+
+<p>解释：从服务器(1.1.1.1)上下载 /vaw/www/html 文件文件夹到当前目录 如果并不存在文件夹会新建一个</p>
+<p>​        2.从本地复制到远程</p>
+<p>文件：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src 1.txt root@1.1.1.1:/vaw/www/html</span><br></pre></td></tr></table></figure></div>
+
+<p>解释：把本地1.txt 上传到1.1.1.1 的var/www/html目录下</p>
+<p>文件夹</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src -r X root@1.1.1.1:/vaw/www/html</span><br></pre></td></tr></table></figure></div>
+
+<p>解释：把本地X文件夹 上传到1.1.1.1 的var/www/html目录下</p>
 
       
     </div>
@@ -537,7 +604,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-使用/">docker 使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/liunx/">liunx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-使用/">docker 使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/liunx/">liunx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pwn/">pwn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随手笔记/">随手笔记</a></li></ul>
     </div>
   </div>
 
@@ -547,7 +614,7 @@
   <div class="widget-box">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
     </div>
   </div>
 
@@ -559,11 +626,15 @@
       <ul>
         
           <li>
-            <a href="/2019/07/13/liunx-scp/">liunx命令</a>
+            <a href="/2019/08/19/PC/">PC逻辑过程</a>
           </li>
         
           <li>
             <a href="/2019/07/13/gdb/">pwn之gdb</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/13/liunx-scp/">liunx命令</a>
           </li>
         
           <li>
@@ -572,10 +643,6 @@
         
           <li>
             <a href="/2019/06/29/安装docker/">安装docker</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/29/hexo-博客的搭建/">hexo 博客的搭建</a>
           </li>
         
       </ul>
