@@ -98,37 +98,12 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <h2 id="PC逻辑"><a href="#PC逻辑" class="headerlink" title="PC逻辑"></a>PC逻辑</h2><h4 id="再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接"><a href="#再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接" class="headerlink" title="再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接"></a>再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/av53618267/?p=1</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h4><p>​    为什么PC中使用二进制的原因，在1表示True（真），0表示False（假）</p>
-<p>​    逻辑代数三个基本过程：NOT（逻辑非），AND（逻辑于）和OR（逻辑或）</p>
-<p>​    NOT（逻辑非）：将当前逻辑取反，作用单个布尔值，结合python，如下</p>
-<img src="/2019/08/19/PC/PC1.png">
-
-<p>​    </p>
-<p>​    在物理上构建NOT逻辑的时候，看蒙了，看了几遍总算理解如何构造NOT逻辑<br>​    </p>
-<p>​    首先看第一张图，一个正常的电控开关</p>
-<img src="/2019/08/19/PC/PC2.png">
-
-
-
-<p>​    图中的INPUT 是控制总线，它的开关代表了OUTPUT输出的是0还是1 ，但是他本事也有0和1 的状态，也就是真和假的两种状态。</p>
-<p>​    所以当我们给INPUT（控制线）为1(通电)时，开关为开，电流通过晶体流入OUTPUT，这时电位为开，输出为1 。INPUT（控制线）为0，电流就无法通过晶体，OUTPUT就表示0，输出为0.</p>
-<p>也就是视频中的</p>
-<img src="/2019/08/19/PC/PC3.png">
-
-<p>​    </p>
-<p>​    接下来是NOT物理电路</p>
-<img src="/2019/08/19/PC/PC4.png">
-<img src="/2019/08/19/PC/PC5.png">
-
-<p>先解释一下两个图片的不同吧，INPUT（控制线）位置不变，OUTPUT变到流入处，原来的位置变为接地线。</p>
-<p>那么问题来了，什么是接地线，不知道大家欧姆定律，欧姆定律中说到电阻越大电流就越小，而电流也先是欺软怕硬的，如果遇到了电阻很低的存在，所有电流都会到电阻很低的地方流过。</p>
-<p>接地线的电阻，在物理上是无线接近于0 的，也就是说，如果接地线，出现在闭合电路中，那么，所有电流将全部从接地线流出。</p>
-<p>所有，NOT逻辑电路中，INPUT为1的时候，电流知道了接地线的存在，就全部到从接地线中流出，导致OUTPUT中无电流，表示为0，当INPUT为0的时候，电流没有其他路可以走，只能走OUTPUT，所有OUTPUT呈现为1</p>
-<p>所以逻辑表为，这样就实习了NOT过程</p>
-<img src="/2019/08/19/PC/PC6.png">
-
+        <h2 id="PC逻辑"><a href="#PC逻辑" class="headerlink" title="PC逻辑"></a>PC逻辑</h2><h4 id="再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接"><a href="#再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接" class="headerlink" title="再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接"></a>再B站中看到这个视频，觉得挺有意思的，做个小笔记，下面是B站视频连接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/av53618267/?p=1</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/08/19/PC/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     
@@ -166,102 +141,15 @@
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
         <h3 id="什么是gdb"><a href="#什么是gdb" class="headerlink" title="什么是gdb"></a>什么是gdb</h3><p>如果不知道什么是gdb，自行百度。</p>
-<h3 id="gdb使用"><a href="#gdb使用" class="headerlink" title="gdb使用"></a>gdb使用</h3><h4 id="1-使用gdb打开procedure程序"><a href="#1-使用gdb打开procedure程序" class="headerlink" title="1.使用gdb打开procedure程序"></a>1.使用gdb打开procedure程序</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb [选项] &lt;procedure&gt; | &lt;PID&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="gdb使用"><a href="#gdb使用" class="headerlink" title="gdb使用"></a>gdb使用</h3><h4 id="1-使用gdb打开procedure程序"><a href="#1-使用gdb打开procedure程序" class="headerlink" title="1.使用gdb打开procedure程序"></a>1.使用gdb打开procedure程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb [选项] &lt;procedure&gt; | &lt;PID&gt;</span><br></pre></td></tr></table></figure>
 
 <p>调用procedure程序。这时程序并没有运行。</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-cd：设置工作目录；</span><br><span class="line">-q：安静模式，不打印介绍信息和版本信息；</span><br><span class="line">-d：添加文件查找路径；</span><br><span class="line">-x：从指定文件中执行GDB指令；</span><br><span class="line">-s：设置读取的符号表文件。</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="2-gdb运行程序"><a href="#2-gdb运行程序" class="headerlink" title="2.gdb运行程序"></a>2.gdb运行程序</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) start &amp;&amp; run</span><br></pre></td></tr></table></figure></div>
-
-<p>1) start 命令会如果没有断点将程序运行到main函数中然后停止，有断点运行到断点处停止。<br>2) run命令会如果没有断点，会将程序正常运行，如果有断点则运行到断点处停止。</p>
-<h5 id="说到断点，如何设置断点？"><a href="#说到断点，如何设置断点？" class="headerlink" title="说到断点，如何设置断点？"></a>说到断点，如何设置断点？</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) break (函数名) | *（内存地址）</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/13/gdb/gdb1.png">
-
-<img src="/2019/07/13/gdb/gdb2.png">
-
-<img src="/2019/07/13/gdb/gdb3.png">
-
-<h5 id="临时断点"><a href="#临时断点" class="headerlink" title="临时断点"></a>临时断点</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) tbreak (函数名) | *（内存地址）</span><br></pre></td></tr></table></figure></div>
-
-<p>只在设置处停止一次，停止完后自动删除断点</p>
-<h5 id="条件断点"><a href="#条件断点" class="headerlink" title="条件断点"></a>条件断点</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) tbreak (函数名) | *（内存地址） if i==101</span><br></pre></td></tr></table></figure></div>
-
-<p>当程序局部变量i 等于101 的时候，触发断点</p>
-<h5 id="查看断点"><a href="#查看断点" class="headerlink" title="查看断点"></a>查看断点</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info b | info breakpoints</span><br></pre></td></tr></table></figure></div>
-
-<p>打印当前所有设置的断点</p>
-<img src="/2019/07/13/gdb/gdb4.png">
-
-<h5 id="断点设置太多了怎么办？"><a href="#断点设置太多了怎么办？" class="headerlink" title="断点设置太多了怎么办？"></a>断点设置太多了怎么办？</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(gdb) delete breakpoints #删除所有断点</span><br><span class="line"></span><br><span class="line">#删除单个断点1</span><br><span class="line">delete n</span><br></pre></td></tr></table></figure></div>
-
-<p>n 为info b 命令查看的后的标号</p>
-<img src="/2019/07/13/gdb/gdb5.png">
-
-
-
-<h4 id="3-gdb的汇编代码查看"><a href="#3-gdb的汇编代码查看" class="headerlink" title="3. gdb的汇编代码查看"></a>3. gdb的汇编代码查看</h4><p>如果程序不在断点或者调试状态中用</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble (函数名) | *（内存地址）</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/13/gdb/gdb6.png">
-
-<img src="/2019/07/13/gdb/gdb7.png">
-
-<p>如果程序在断点处，直接输入disassemble 命令，会直接输出当前命令的所在位置</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble #输出当前所在的汇编代码处</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/13/gdb/gdb8.png">
-
-
-
-<h5 id="但是这时的汇编代码和我们用ida-查看的汇编代码不同，因为linux默认使用att-的汇编格式，可以使用下面的命令修改为intel格式汇编"><a href="#但是这时的汇编代码和我们用ida-查看的汇编代码不同，因为linux默认使用att-的汇编格式，可以使用下面的命令修改为intel格式汇编" class="headerlink" title="但是这时的汇编代码和我们用ida 查看的汇编代码不同，因为linux默认使用att 的汇编格式，可以使用下面的命令修改为intel格式汇编"></a>但是这时的汇编代码和我们用ida 查看的汇编代码不同，因为linux默认使用att 的汇编格式，可以使用下面的命令修改为intel格式汇编</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set disassembly-flavor intel | att</span><br></pre></td></tr></table></figure></div>
-
-<p>设置为intel</p>
-<img src="/2019/07/13/gdb/gdb9.png">
-
-<img src="/2019/07/13/gdb/gdb10.png">
-
-<h4 id="4-单步执行程序汇编"><a href="#4-单步执行程序汇编" class="headerlink" title="4. 单步执行程序汇编"></a>4. 单步执行程序汇编</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) ni  #单步步过</span><br><span class="line">(gdb) si  #单步步入</span><br></pre></td></tr></table></figure></div>
-
-<p>ni 和si 在普通的汇编代码中这条命令是没区别的，只有在call 指令的时候，是不同的，<br>首先 ni和si 都是单步运行下一条命令，但是 ni 遇到call 的汇编指令的时候，不会跳转到call 函数中去，是将call 执行后，执行到下一条命令。而si 会则会跳转去，执行函数里的汇编。<br>         解释：call 指令是，汇编跳转指令，跳转前，会保留返回值地址，执行完毕后回到原来的逻辑流程。</p>
-<h4 id="5-gdb打印所有函数"><a href="#5-gdb打印所有函数" class="headerlink" title="5. gdb打印所有函数"></a>5. gdb打印所有函数</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info functions [name]</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/13/gdb/gdb11.png">
-
-<p>info functions 还支持正则匹配函数名</p>
-<img src="/2019/07/13/gdb/gdb12.png">
-
-
-
-<h4 id="6-gdb-查看，各寄存器当前数据"><a href="#6-gdb-查看，各寄存器当前数据" class="headerlink" title="6. gdb 查看，各寄存器当前数据"></a>6. gdb 查看，各寄存器当前数据</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info registers</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/13/gdb/gdb13.png">
-
-
-
-<h4 id="7-gdb的-x用法"><a href="#7-gdb的-x用法" class="headerlink" title="7.gdb的 x用法"></a>7.gdb的 x用法</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x/&lt;n/f/u&gt; &lt;addr&gt;</span><br></pre></td></tr></table></figure></div>
-
-<p>n、f、u是可选的参数。</p>
-<p>n表示是数量，显示单元数量。这个数量的单位是u参数决定的。</p>
-<p>f 参数表示内存内容显示的格式</p>
-<p>​    s按字符串的格式显示变量。</p>
-<p>​    i按汇编代码格式显示变量。</p>
-<p>​    x 按十六进制格式显示变量。</p>
-<p>​    d 按十进制格式显示变量。</p>
-<p>​    u 按十六进制格式显示无符号整型。</p>
-<p>​    o 按八进制格式显示变量。</p>
-<p>​    t 按二进制格式显示变量。</p>
-<p>​    a 按十六进制格式显示变量。</p>
-<p>​    c 按字符格式显示变量。</p>
-<p>​    f 按浮点数格式显示变量。</p>
-<p>u单元的长度<br>    b是一个byte</p>
-<p>​    h是两个byte（halfword)</p>
-<p>​    w是四个byte（word 32位）</p>
-<p>​    g是八个byte（giant word 64位）</p>
-<h4 id="8-技巧"><a href="#8-技巧" class="headerlink" title="8.技巧"></a>8.技巧</h4><p>直接执行完当前函数</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) finish</span><br></pre></td></tr></table></figure></div>
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-cd：设置工作目录；</span><br><span class="line">-q：安静模式，不打印介绍信息和版本信息；</span><br><span class="line">-d：添加文件查找路径；</span><br><span class="line">-x：从指定文件中执行GDB指令；</span><br><span class="line">-s：设置读取的符号表文件。</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/07/13/gdb/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     
@@ -298,30 +186,12 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <h2 id="记录一些liunx命令的使用"><a href="#记录一些liunx命令的使用" class="headerlink" title="记录一些liunx命令的使用"></a>记录一些liunx命令的使用</h2><h4 id="liunx间的文件复制命令SCP"><a href="#liunx间的文件复制命令SCP" class="headerlink" title="liunx间的文件复制命令SCP"></a>liunx间的文件复制命令SCP</h4><h4 id="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"><a href="#scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。" class="headerlink" title="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"></a>scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。</h4><h5 id="1-命令格式"><a href="#1-命令格式" class="headerlink" title="1. 命令格式"></a>1. 命令格式</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [参数] [原路径] [目标路径]</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="2-命令参数"><a href="#2-命令参数" class="headerlink" title="2.  命令参数"></a>2.  命令参数</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">-1  强制scp命令使用协议ssh1 </span><br><span class="line"></span><br><span class="line">-2  强制scp命令使用协议ssh2 </span><br><span class="line"></span><br><span class="line">-4  强制scp命令只使用IPv4寻址 </span><br><span class="line"></span><br><span class="line">-6  强制scp命令只使用IPv6寻址 </span><br><span class="line"></span><br><span class="line">-B  使用批处理模式（传输过程中不询问传输口令或短语） </span><br><span class="line"></span><br><span class="line">-C  允许压缩。（将-C标志传递给ssh，从而打开压缩功能） </span><br><span class="line"></span><br><span class="line">-p 保留原文件的修改时间，访问时间和访问权限。 </span><br><span class="line"></span><br><span class="line">-q  不显示传输进度条。 </span><br><span class="line"></span><br><span class="line">-r  递归复制整个目录。 </span><br><span class="line"></span><br><span class="line">-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。  </span><br><span class="line"></span><br><span class="line">-c cipher  以cipher将数据传输进行加密，这个选项将直接传递给ssh。  </span><br><span class="line"></span><br><span class="line">-F ssh_config  指定一个替代的ssh配置文件，此参数直接传递给ssh。 </span><br><span class="line"></span><br><span class="line">-i identity_file  从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。   </span><br><span class="line"></span><br><span class="line">-l limit  限定用户所能使用的带宽，以Kbit/s为单位。    </span><br><span class="line"></span><br><span class="line">-o ssh_option  如果习惯于使用ssh_config(5)中的参数传递方式，  </span><br><span class="line"></span><br><span class="line">-P port  注意是大写的P, port是指定数据传输用到的端口号  </span><br><span class="line"></span><br><span class="line">-S program  指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="3-实例"><a href="#3-实例" class="headerlink" title="3.  实例"></a>3.  实例</h5><p>​        1.从远程复制到本地</p>
-<p>​        远程IP地址是 1.1.1.1（根据实际进行改变）</p>
-<p>文件： </p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src root@1.1.1.1:/vaw/www/html/1.php ./</span><br></pre></td></tr></table></figure></div>
-
-<p>解释：从服务器(1.1.1.1)上下载 /vaw/www/html/1.php 文件到当前目录</p>
-<p>文件夹：</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src -r root@1.1.1.1:/vaw/www/html ./</span><br></pre></td></tr></table></figure></div>
-
-<p>解释：从服务器(1.1.1.1)上下载 /vaw/www/html 文件文件夹到当前目录 如果并不存在文件夹会新建一个</p>
-<p>​        2.从本地复制到远程</p>
-<p>文件：</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src 1.txt root@1.1.1.1:/vaw/www/html</span><br></pre></td></tr></table></figure></div>
-
-<p>解释：把本地1.txt 上传到1.1.1.1 的var/www/html目录下</p>
-<p>文件夹</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src -r X root@1.1.1.1:/vaw/www/html</span><br></pre></td></tr></table></figure></div>
-
-<p>解释：把本地X文件夹 上传到1.1.1.1 的var/www/html目录下</p>
-
+        <h2 id="记录一些liunx命令的使用"><a href="#记录一些liunx命令的使用" class="headerlink" title="记录一些liunx命令的使用"></a>记录一些liunx命令的使用</h2><h4 id="liunx间的文件复制命令SCP"><a href="#liunx间的文件复制命令SCP" class="headerlink" title="liunx间的文件复制命令SCP"></a>liunx间的文件复制命令SCP</h4><h4 id="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"><a href="#scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。" class="headerlink" title="scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。"></a>scp命令和cp命令的效果是一样的，不一样的是cp是复制本地的文件，scp可以复制远程文件或文件夹。</h4><h5 id="1-命令格式"><a href="#1-命令格式" class="headerlink" title="1. 命令格式"></a>1. 命令格式</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [参数] [原路径] [目标路径]</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/07/13/liunx-scp/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     
@@ -362,69 +232,11 @@
 <h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>​    要学会使用首先了解两个东西一个是镜像，另一个容器，容器是由镜像所启动的，具体解释看官网图片解释，会比较具体。</p>
 <h3 id="一-镜像"><a href="#一-镜像" class="headerlink" title="一.镜像"></a>一.镜像</h3><p>什么是镜像：</p>
 <p>就像iso镜像文件一样，安装成一个新的系统，docker的镜像，可以生成一个和docker镜像一样的虚拟环境也就是容器。</p>
-<p>查看本地有哪些镜像：</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker images</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/02/docekr/1.png">
-
-<p>获取：</p>
-<ol>
-<li>docker镜像可以有docker官网的镜像库上下载<br>使用下面命令进行下载（前提官方库有）<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull ID（name）:TAG</span><br></pre></td></tr></table></figure></div>
-
-</li>
-</ol>
-<img src="/2019/07/02/docekr/3.png">
-
-<p>​        可以使用下面命令查询公共库镜像，会匹配关键字</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker search ubuntu</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/02/docekr/2.png">
-
-<ol start="2">
-<li><p>由本地自己构造<br>这种构造方式工作量太大，这里就不写了，知道可以从零构造镜像就够了。</p>
-</li>
-<li><p>由已修改的容器构造新的镜像</p>
-</li>
-</ol>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="DOCKER"><figure class="iseeu highlight /docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker commit ID xxx/xxx:<span class="number">0.1</span></span><br></pre></td></tr></table></figure></div>
-
-<p>​    解释：用容器ID构造了一个xxx/xxx TAG 为0.1 的镜像</p>
-<p>​    镜像的获取主要就是1和3。</p>
-<p>删除容器：<br>        用下面命令删除</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docekr rmi ID（name） #默认无法删除有启动容器的镜像，需要先删除容器，再删除镜像</span><br></pre></td></tr></table></figure></div>
-
-<p>​    如果想强制删除用 -f选项</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi -f ID（name）</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/02/docekr/4.png">
-<img src="/2019/07/02/docekr/5.png">
-
-<h3 id="二-容器"><a href="#二-容器" class="headerlink" title="二.容器"></a>二.容器</h3><p>什么是容器：</p>
-<p>容器是由镜像启动的，容器的占用体积非常小，也就是说，容器是基于镜像而运行的，但是容器的修改是不会对镜像产生影响。</p>
-<p>查看容器</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docekr ps -a</span><br></pre></td></tr></table></figure></div>
-
-<p>查看所有的容器</p>
-<img src="/2019/07/02/docekr/7.png">
-
-<p>获取：</p>
-<p>由本地镜像启动，如果本地没有该镜像，就会从docker公共库上尝试下载。</p>
-<p>创建容器</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dcoker run -dt ID(name)</span><br></pre></td></tr></table></figure></div>
-
-<p>解释：-d  后台运行容器，并返回容器ID</p>
-<p>​             -t  容器重新分配一个伪输入终端</p>
-<img src="/2019/07/02/docekr/6.png">
-
-<p>删除容器</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docekr rm ID（name）</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/07/02/docekr/8.png">
-
-<p>容器启动，停止，重启</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker start ID（name）  #启动</span><br><span class="line">sudo docker stop ID（name）   #停止</span><br><span class="line">sudo docker restart ID（name）#重启</span><br></pre></td></tr></table></figure></div>
-
-
+        
+          <p class="article-more-link">
+            <a href="/2019/07/02/docekr/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     
@@ -461,45 +273,12 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装环境</span><br><span class="line">网络配置</span><br><span class="line">安装 docker</span><br><span class="line">安装docker-compose</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><p>本次docker 环境使用Ubuntu 18.04 </p>
-<h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p>首先查看Ubuntu服务器能够访问Docker仓库地址： <a href="https://download.docker.com/linux/ubuntu" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu</a><br>如果正常访问，则可以按下列方法继续安装。</p>
-<img src="/2019/06/29/安装docker/1.png">
-
-<h3 id="安装环境-1"><a href="#安装环境-1" class="headerlink" title="安装环境"></a>安装环境</h3><p>使用下面命令安装需要的工具</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  #跟新软件列表</span><br><span class="line"></span><br><span class="line">sudo apt-get install apt-transport-https ca-certificates curl software-properties-common #安装需要的软件</span><br><span class="line"></span><br><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #备份一次</span><br><span class="line">sudo vi /etc/apt/sources.list #新建一个sources.list</span><br></pre></td></tr></table></figure></div>
-
-<p>在sources.list写入<br>deb [arch=amd64] <a href="https://download.docker.com/linux/ubuntu" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu</a> bionic stable</p>
-<p>添加秘钥</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add </span><br><span class="line">sudo apt-get update  #跟新软件列表</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/06/29/安装docker/2.png">
-
-<h3 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker-ce #安装docker</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/06/29/安装docker/3.png">
-
-<p>docker –version #查看版本</p>
-<img src="/2019/06/29/安装docker/4.png">
-
-<p>到这里docker 安装完毕</p>
-<h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><p>docker-compose可以调用dockerfile 和docker-compose.yml 等文件生成写好的docker镜像文件。</p>
-<p>因为刚刚我们改了sources.list，现在改为正常的国内更新源。</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure></div>
-
-<p>贴出两个比较好用的更新源。这里使用阿里源</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 阿里源</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 清华源</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure></div>
-
-<p>保存后使用</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install docker-compose</span><br><span class="line"></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure></div>
-
-<img src="/2019/06/29/安装docker/5.png">
-<p>到这里docker 环境安装完成！</p>
-<p>参考文档<a href="https://blog.csdn.net/u010889616/article/details/80170767" target="_blank" rel="noopener">https://blog.csdn.net/u010889616/article/details/80170767</a></p>
-
+        <h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装环境</span><br><span class="line">网络配置</span><br><span class="line">安装 docker</span><br><span class="line">安装docker-compose</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/06/29/安装docker/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     

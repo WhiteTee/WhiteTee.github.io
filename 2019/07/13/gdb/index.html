@@ -10,13 +10,13 @@
   
   
   
-  <meta name="description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。  2">
+  <meta name="description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。">
 <meta name="keywords" content="pwn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pwn之gdb">
 <meta property="og:url" content="http://yoursite.com/2019/07/13/gdb/index.html">
 <meta property="og:site_name" content="晓生丶白衣">
-<meta property="og:description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。  2">
+<meta property="og:description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb2.png">
@@ -31,10 +31,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb11.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb12.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/13/gdb/gdb13.png">
-<meta property="og:updated_time" content="2019-08-15T10:03:51.911Z">
+<meta property="og:updated_time" content="2019-08-31T00:32:04.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pwn之gdb">
-<meta name="twitter:description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。  2">
+<meta name="twitter:description" content="什么是gdb如果不知道什么是gdb，自行百度。 gdb使用1.使用gdb打开procedure程序1gdb [选项] &amp;lt;procedure&amp;gt; | &amp;lt;PID&amp;gt;  调用procedure程序。这时程序并没有运行。 12345-cd：设置工作目录；-q：安静模式，不打印介绍信息和版本信息；-d：添加文件查找路径；-x：从指定文件中执行GDB指令；-s：设置读取的符号表文件。">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/13/gdb/gdb1.png">
   
     <link rel="alternate" href="/atom.xml" title="晓生丶白衣" type="application/atom+xml">
@@ -124,6 +124,8 @@
 
 <p>调用procedure程序。这时程序并没有运行。</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-cd：设置工作目录；</span><br><span class="line">-q：安静模式，不打印介绍信息和版本信息；</span><br><span class="line">-d：添加文件查找路径；</span><br><span class="line">-x：从指定文件中执行GDB指令；</span><br><span class="line">-s：设置读取的符号表文件。</span><br></pre></td></tr></table></figure></div>
+
+<a id="more"></a>
 
 <h4 id="2-gdb运行程序"><a href="#2-gdb运行程序" class="headerlink" title="2.gdb运行程序"></a>2.gdb运行程序</h4><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) start &amp;&amp; run</span><br></pre></td></tr></table></figure></div>
 
