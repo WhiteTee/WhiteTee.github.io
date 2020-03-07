@@ -273,12 +273,55 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装环境</span><br><span class="line">网络配置</span><br><span class="line">安装 docker</span><br><span class="line">安装docker-compose</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2019/06/29/安装docker/#more">阅读全文</a>
-          </p>
-        
+        <h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装环境</span><br><span class="line">网络配置</span><br><span class="line">安装 docker</span><br><span class="line">安装docker-compose</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><p>本次docker 环境使用Ubuntu 18.04 </p>
+<h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p>首先查看Ubuntu服务器能够访问Docker仓库地址： <a href="https://download.docker.com/linux/ubuntu" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu</a><br>如果正常访问，则可以按下列方法继续安装。</p>
+<img src="/2019/06/29/安装docker/1.png">
+
+<h3 id="安装环境-1"><a href="#安装环境-1" class="headerlink" title="安装环境"></a>安装环境</h3><p>使用下面命令安装需要的工具</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get updat  #跟新软件列表</span><br><span class="line"></span><br><span class="line">sudo apt-get install apt-transport-https ca-certificates curl software-properties-common #安装需要的软件</span><br><span class="line"></span><br><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #备份一次</span><br></pre></td></tr></table></figure></div>
+
+<p>在sources.list写入</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#新建一个sources.list</span><br><span class="line">echo deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable &gt;/etc/apt/sources.list</span><br></pre></td></tr></table></figure></div>
+
+<p>添加秘钥</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add </span><br><span class="line">sudo apt-get update  #跟新软件列表</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/06/29/安装docker/2.png">
+
+<h3 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h3><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker-ce #安装docker</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/06/29/安装docker/3.png">
+
+<p>docker –version #查看版本</p>
+<img src="/2019/06/29/安装docker/4.png">
+
+<p>到这里docker 安装完毕</p>
+<h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><p>docker-compose可以调用dockerfile 和docker-compose.yml 等文件生成写好的docker镜像文件。</p>
+<p>因为刚刚我们改了sources.list，现在改为正常的国内更新源。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sudo vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure></div>
+
+<p>贴出两个比较好用的更新源。这里使用阿里源</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 阿里源</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 清华源</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure></div>
+
+<p>保存后使用</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install docker-compose</span><br><span class="line"></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure></div>
+
+<img src="/2019/06/29/安装docker/5.png">
+<p>到这里docker 环境安装完成！</p>
+<p>参考文档<a href="https://blog.csdn.net/u010889616/article/details/80170767" target="_blank" rel="noopener">https://blog.csdn.net/u010889616/article/details/80170767</a></p>
+<h2 id="有可能出现的问题"><a href="#有可能出现的问题" class="headerlink" title="有可能出现的问题"></a>有可能出现的问题</h2><h4 id="安装正常完成后启动docker提示进程没启动"><a href="#安装正常完成后启动docker提示进程没启动" class="headerlink" title="安装正常完成后启动docker提示进程没启动"></a>安装正常完成后启动docker提示进程没启动</h4><pre><code>1. 先确认是root用户启动的docker ，默认情况下只有root有权限使用doker。
+ 2. 如果是root用户启动的doker，并手动启动后还是没用进程，可以使用下面命令尝试</code></pre><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl unmask docker.service</span><br><span class="line"></span><br><span class="line">sudo systemctl unmask docker.socket</span><br><span class="line"></span><br><span class="line">sudo systemctl start docker.service</span><br></pre></td></tr></table></figure></div>
+
+<p>启动还是报错，就有可能是安装过程出现问题，可以尝试重装docker-ce</p>
+<p>先卸载docker-ce</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker-ce docker-ce-cli</span><br></pre></td></tr></table></figure></div>
+
+<p>然后从新到添加更docker新源的那步，重新安装docker-ce</p>
+
       
     </div>
     
@@ -426,7 +469,7 @@
       
 <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 WhiteTee &nbsp;&nbsp;
+    &copy; 2020 WhiteTee &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>
